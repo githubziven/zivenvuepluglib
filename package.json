@@ -2,6 +2,7 @@
   "name": "rotatevue",
   "version": "1.0.0",
   "description": "0.0.1",
+  "repository": "https://github.com/githubziven/rotatevue.git",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
