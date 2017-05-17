@@ -1,24 +1,25 @@
 {
-  "name": "rotatevue",
-  "version": "1.1.0",
-  "description": "",
+  "name": "zivenvuepluglib",
+  "version": "0.0.1",
+  "description": "project",
   "main": "transform.vue",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/githubziven/rotatevue.git"
+    "url": "git+https://github.com/githubziven/zivenvuepluglib.git"
   },
   "devDependencies": {
     "css-loader": "^0.28.0",
     "node-sass": "^4.5.2",
+    "sass-loader": "^6.0.3",
     "vue-style-loader": "^2.0.5"
   },
   "author": "1240500584@qq.com",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/githubziven/rotatevue/issues"
+    "url": "https://github.com/githubziven/zivenvuepluglib/issues"
   },
-  "homepage": "https://github.com/githubziven/rotatevue#readme"
+  "homepage": "https://github.com/githubziven/zivenvuepluglib#readme"
 }

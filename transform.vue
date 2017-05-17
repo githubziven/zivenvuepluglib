@@ -58,7 +58,7 @@ export default {
   }
 }
 </script>
-<style lang="scss" scoped>
+<style >
 .box-container {
   position: relative;
   border: 0;
@@ -66,8 +66,8 @@ export default {
   height: 270px;
   transition: all 0.2s;
   background: url('./images/pic03.png');
-  transform-origin: 50% 50%;
-  &__text {
+  transform-origin: 50% 50%;}
+  .box-container__text {
     position: absolute;
     color: #fff;
     font-size: xx-large;
@@ -78,5 +78,4 @@ export default {
     transition: all 0.2s;
     z-index: 100;
   }
-}
 </style>
