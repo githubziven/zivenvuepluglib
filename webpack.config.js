@@ -1,71 +1,70 @@
-var path = require('path');
-var webpack = require('webpack');
+var path = require('path')
+var utils = require('./build/utils')
+var vueLoaderConfig = require('./build/vue-loader.conf')
+var ExtractTextPlugin = require('extract-text-webpack-plugin');
+function resolve(dir) {
+    return path.join(__dirname, '..', dir)
+}
 
 module.exports = {
-    entry: {
-        main: './src/zivenvuepluglib.js'
-    },
+    entry: './src/zivenvuepluglib.js',
     output: {
-        path: path.resolve(__dirname, '../dist'),
-        publicPath: '/dist/',
-        filename: 'zivenvuepluglib.js',
-        library: 'zivenvuepluglib',
+        filename: './dist/zivenvuepluglib.js',
         libraryTarget: 'umd',
         umdNamedDefine: true
-    }, externals: {
-        vue: {
-            root: 'Vue',
-            commonjs: 'vue',
-            commonjs2: 'vue',
-            amd: 'vue'
-        }
     },
     resolve: {
-        extensions: ['.js', '.vue']
-    },
-    node: {
-        console: true,
-        fs: 'empty',
-        net: 'empty',
-        tls: 'empty'
+        extensions: ['.js', '.vue', '.json'],
+        alias: {
+            'vue$': 'vue/dist/vue.esm.js',
+            '@': resolve('src')
+        }
     },
     module: {
-        loaders: [
+        rules: [
             {
-            test: /\.json$/,
-            loader: 'json-loader'
-        },
-        {
-            test: /\.vue$/,
-            loader: 'vue-loader',
-        }, {
-            test: /\.js$/,
-            loader: 'babel-loader',
-            exclude: /node_modules/
-        }, {
-            test: /\.css$/,
-            loader: 'style!css!autoprefixer'
-        }, {
-            test: /\.scss$/,
-            loader: 'style!css!scss'
-        }, {
-            test: /\.(gif|jpg|png|woff|svg|eot|ttf)\??.*$/,
-            loader: 'url?limit=8192'
-        }, {
-            test: /\.(html|tpl)$/,
-            loader: 'vue-html-loader'
-        }]
-    }, plugins: [
-        new webpack.DefinePlugin({
-            'process.env': {
-                NODE_ENV: '"production"'
+                test: /\.vue$/,
+                loader: 'vue-loader',
+                options: {
+                    loaders: {
+                         scss: ExtractTextPlugin.extract({
+                            use: ['css-loader', 'sass-loader'],
+                            fallback: 'vue-style-loader' // <- this is a dep of vue-loader, so no need to explicitly install if using npm3
+                        })
+                    }
+                }
+            },
+            {
+                test: /\.js$/,
+                loader: 'babel-loader',
+                include: [resolve('src'), resolve('test')]
+            }, {
+                test: /\.scss$/,
+                use: ExtractTextPlugin.extract({
+                    fallback: 'style-loader',
+                    //resolve-url-loader may be chained before sass-loader if necessary 
+                    use: ['css-loader', 'sass-loader']
+                })
+            },
+            {
+                test: /\.(png|jpe?g|gif|svg)(\?.*)?$/,
+                loader: 'url-loader',
+                options: {
+                    limit: 10000,
+                    name: utils.assetsPath('img/[name].[hash:7].[ext]')
+                }
+            },
+            {
+                test: /\.(woff2?|eot|ttf|otf)(\?.*)?$/,
+                loader: 'url-loader',
+                options: {
+                    limit: 10000,
+                    name: utils.assetsPath('fonts/[name].[hash:7].[ext]')
+                }
             }
-        }),
-        new webpack.optimize.UglifyJsPlugin({
-            compress: {
-                warnings: false
-            }
-        }),
-        new webpack.optimize.OccurrenceOrderPlugin()
+        ]
+    },
+    plugins: [
+        new ExtractTextPlugin({ filename: './dist/css/style.css', disable: false, allChunks: true }),
     ]
 }

@@ -1,5 +1,5 @@
 <template>
-  <div class="hello">
+  <div class="hellos">
 <transform></transform>
   </div>
 </template>
@@ -7,7 +7,7 @@
 <script>
 import transform from 'zivenvuepluglib'
 export default {
-  name: 'hello',
+  name: 'hellos',
    components:{transform},
   data () {
     return {

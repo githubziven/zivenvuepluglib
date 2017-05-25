@@ -57,7 +57,7 @@ export default {
   }
 }
 </script>
-<style  scoped>
+<style  lang="scss" scoped>
 .box-container {
   position: relative;
   border: 0;
@@ -66,17 +66,16 @@ export default {
   transition: all 0.2s;
   background: url('./images/pic03.png');
   transform-origin: 50% 50%;
-}
-
-.box-container__text {
-  position: absolute;
-  color: #fff;
-  font-size: xx-large;
-  font-weight: bold;
-  text-shadow: 2px 2px 2px #000;
-  bottom: 40px;
-  left: 20px;
-  transition: all 0.2s;
-  z-index: 100;
+  .box-container__text {
+    position: absolute;
+    color: #fff;
+    font-size: xx-large;
+    font-weight: bold;
+    text-shadow: 2px 2px 2px #000;
+    bottom: 40px;
+    left: 20px;
+    transition: all 0.2s;
+    z-index: 100;
+  }
 }
 </style>

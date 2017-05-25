@@ -1,10 +1,11 @@
 {
   "name": "zivenvuepluglib",
   "main": "dist/zivenvuepluglib.js",
-  "version": "1.0.0",
+  "repository": "git@github.com:githubziven/zivenvuepluglib.git",
+  "version": "1.0.1",
   "description": "A Vue.js project",
   "author": "钟伟 <1240500584@qq.com>",
-  "private": true,
+  "private": false,
   "scripts": {
     "dev": "node build/dev-server.js",
     "start": "node build/dev-server.js",
@@ -23,6 +24,7 @@
     "child_process": "^1.0.2",
     "css-loader": "^0.28.1",
     "fs": "0.0.1-security",
+    "inject-loader": "^3.0.0",
     "module": "^1.2.5",
     "net": "^1.0.2",
     "node-gyp": "^3.6.1",
@@ -85,6 +87,7 @@
     "phantomjs-prebuilt": "^2.1.14",
     "rimraf": "^2.6.0",
     "sass-loader": "^6.0.5",
+    "scss-loader": "0.0.1",
     "selenium-server": "^3.0.1",
     "semver": "^5.3.0",
     "shelljs": "^0.7.6",
@@ -103,6 +106,10 @@
   "engines": {
     "node": ">= 4.0.0",
     "npm": ">= 3.0.0"
+  },
+  "browser": {
+    "fs": false,
+    "child_process": false
   },
   "browserslist": [
     "> 1%",
