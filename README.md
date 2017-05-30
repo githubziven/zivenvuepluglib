@@ -1,6 +1,6 @@
 # zivenvuepluglib
-
-> A Vue.js project
+  
+> Ziven plug-in library for quick installation, used in actual projects, including Vue components, animation plug-ins, general features, new components.
 
 ## Build Setup
 
