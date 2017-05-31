@@ -2,7 +2,7 @@
   "name": "zivenvuepluglib",
   "main": "dist/zivenvuepluglib.js",
   "repository": "git@github.com:githubziven/zivenvuepluglib.git",
-  "version": "1.0.1",
+  "version": "1.0.3",
   "description": "A Vue.js project",
   "author": "钟伟 <1240500584@qq.com>",
   "private": false,
